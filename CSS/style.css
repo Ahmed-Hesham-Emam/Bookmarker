@@ -18,6 +18,7 @@ h6 {
 ::selection {
   background: #fec260;
   color: #352e28;
+  -webkit-text-fill-color: #352e28;
 }
 
 body {
