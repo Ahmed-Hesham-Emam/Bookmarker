@@ -1,0 +1,187 @@
+/* main ¯\_(ツ)_/¯ */
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #352e28;
+}
+
+::selection {
+  background: #fec260;
+  color: #352e28;
+}
+
+body {
+  background-color: #f7ecde;
+}
+/* ------------------------------------------------------------------------------------------------------- */
+
+/* Input section */
+.container h1 {
+  font-size: 50px;
+  font-family: "Pacifico", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.container h1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  left: 0;
+  bottom: 15px;
+  background-color: #fec260;
+  transition: height 500ms;
+  -webkit-transition: height 500ms;
+  -moz-transition: height 500ms;
+  -ms-transition: height 500ms;
+  -o-transition: height 500ms;
+  z-index: -1;
+}
+
+.container h1:hover::before {
+  height: 45%;
+}
+
+.box-1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border-top: 2px dotted black;
+}
+
+.box-1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-top: 2px dotted black;
+}
+
+.container h2 {
+  font-family: "Righteous", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  display: inline-block;
+  background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 10px 1px orange;
+}
+
+.btn-submit {
+  color: white;
+  background-color: #d1512d;
+  border: 1px solid #d1512d;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+
+.btn-submit:active {
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+.btn-submit:hover {
+  background-color: #bb4120;
+  border: 1px solid #d1512d;
+}
+
+.btn-submit:focus {
+  background-color: #bb4120;
+  border: 1px solid #d1512d;
+}
+
+.btn.disabled {
+  color: white;
+  background-color: #d1512d;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+/* Table section /bookmarked sites */
+#my-table {
+  font-family: "PT Sans Caption", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #352e28;
+}
+
+.btn-visit {
+  color: white;
+  background-color: #9eb23b;
+  border: 1px solid #9eb23b;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+
+.btn-visit:hover {
+  color: white;
+  background-color: #8a9e23;
+  border: 1px solid #6e8018;
+}
+
+.btn-visit:focus {
+  color: white;
+  background-color: #8a9e23;
+  border: 1px solid #6e8018;
+}
+
+.btn-visit:active {
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-delete {
+  color: white;
+  background-color: #eb1d36;
+  border: 1px solid #eb1d36;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+
+.btn-delete:hover {
+  color: white;
+  background-color: #d30820;
+  border: 1px solid #ba081d;
+}
+
+.btn-delete:focus {
+  color: white;
+  background-color: #d30820;
+  border: 1px solid #ba081d;
+}
+
+.btn-delete:active {
+  color: black;
+  border: 1px solid black;
+}

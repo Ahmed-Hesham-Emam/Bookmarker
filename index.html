@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Bookmarker</title>
+    <link rel="shortcut icon" type="image/x-icon" href="bookmark.png" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="CSS/all.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+  </head>
+  <body>
+    <main class="container-fluid text-center position-relative">
+      <div class="container">
+        <h1 class="py-1 d-inline-block z-1 position-relative">Bookmarker</h1>
+
+        <div
+          oninput="submitValidation() , validateName() , validateURL()"
+          class="box-1 position-relative mt-5 py-3"
+        >
+          <div class="row">
+            <div class="col-12">
+              <h2 class="pt-4">
+                <i class="fa-solid fa-bookmark"></i> Bookmark your favorite
+                sites
+                <i class="fa-solid fa-bookmark"></i>
+              </h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="form-floating mt-5 mb-4">
+                <input
+                  oninput="validateName()"
+                  type="text"
+                  class="form-control"
+                  id="bookmarkName"
+                  placeholder="Name"
+                />
+                <label for="bookmarkName">Bookmark Name</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-floating mt-2 mb-4">
+                <input
+                  oninput="validateURL()"
+                  type="text"
+                  class="form-control"
+                  id="bookmarkURL"
+                  placeholder="URL"
+                />
+                <label for="bookmarkURL">bookmark URL</label>
+              </div>
+            </div>
+          </div>
+
+          <button
+            id="Submit"
+            onclick="addBookmark() , disableSubmit()"
+            class="btn btn-submit disabled px-5 text-white align-self-center mb-4"
+          >
+            Submit
+          </button>
+        </div>
+
+        <table class="table mt-4 bg-light">
+          <thead>
+            <tr>
+              <th class="py-3">index</th>
+              <th class="py-3">Website Name</th>
+              <th class="py-3">Visit</th>
+              <th class="py-3">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="my-table"></tbody>
+        </table>
+      </div>
+    </main>
+    <!-- JS -->
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/index.js"></script>
+  </body>
+</html>
