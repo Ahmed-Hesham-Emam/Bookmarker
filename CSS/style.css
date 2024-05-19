@@ -19,6 +19,9 @@ h6 {
   background: #fec260;
   color: #352e28;
   -webkit-text-fill-color: #352e28;
+  -moz-text-fill-color: #352e28;
+  -ms-text-fill-color: #352e28;
+  -o-text-fill-color: #352e28;
 }
 
 body {
@@ -79,11 +82,18 @@ body {
   font-size: 20px;
   display: inline-block;
   background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+
   color: transparent;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  -ms-text-fill-color: transparent;
+  -o-text-fill-color: transparent;
+
   background-clip: text;
   -moz-background-clip: text;
   -webkit-background-clip: text;
+  -o-background-clip: text;
+  -ms-background-clip: text;
 }
 
 .form-control:focus {
