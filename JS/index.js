@@ -2,13 +2,13 @@ var bookmarkNameInput = document.getElementById("bookmarkName");
 var bookmarkUrlInput = document.getElementById("bookmarkURL");
 var addBookmarkBtn = document.getElementById("Submit");
 var bookmarkView = document.getElementById("my-table");
-var regexName = /^[a-z]{1,}/gi;
+var regexName = /^[a-z]{2,}/gi;
 var regexURL =
-  /^(http:\/\/|https:\/\/)?(w{3}\.)?[a-z]{1,}\.(com|net|edu|gov|me|tech|bg|site)$/gi;
+  /^(http:\/\/|https:\/\/)?(w{3}\.)?[a-zA-Z0-9_]{1,}\.(com|co|net|edu|gov|me|tech|site|mil|eg|bg|tr|ru|uk|ca)/g;
 var bookmarkList = [];
 
 // createing an array to store the bookmarks
-if (localStorage.getItem("bookmarks") !== null) {
+if (localStorage.getItem("bookmarks") != null) {
   bookmarkList = JSON.parse(localStorage.getItem("bookmarks"));
   display(bookmarkList);
 }
@@ -27,7 +27,10 @@ function addBookmark() {
     return bookmark.URL === bookmarkUrlInput.value;
   });
 
-  if (bookmarkExistsName) {
+  if (bookmarkExistsName && bookmarkExistsURL) {
+    alert("(╯°□°）╯︵ ┻━┻ THE BOOKMARK NAME AND URL ALREADY EXISTS!");
+    // console.log("the bookmark name and url already exists!");
+  } else if (bookmarkExistsName) {
     alert("(╯°□°）╯︵ ┻━┻ THIS BOOKMARK NAME ALREADY EXISTS!");
     // console.log("Name already exists!");
   } else if (bookmarkExistsURL) {
@@ -38,6 +41,8 @@ function addBookmark() {
     localStorage.setItem("bookmarks", JSON.stringify(bookmarkList));
     display(bookmarkList);
     clearForm();
+    bookmarkUrlInput.classList.remove("is-valid");
+    bookmarkNameInput.classList.remove("is-valid");
   }
 }
 
@@ -51,8 +56,8 @@ function display(View) {
         <td class="py-3"> <button onclick="viewBookmark(${i})" class="btn btn-visit fs-6"> <i class="fa-solid fa-eye pe-2"></i> Visit </td>
         <td class="py-3"> <button onclick="deleteBookmark(${i})" class="btn btn-delete fs-6"> <i class="fa-solid fa-trash-can pe-2"></i> Delete</button> </td>
         </tr>`;
-    bookmarkView.innerHTML = bookMarks;
   }
+  bookmarkView.innerHTML = bookMarks;
 }
 
 // clear form
@@ -65,10 +70,6 @@ function clearForm() {
 function deleteBookmark(index) {
   bookmarkList.splice(index, 1);
   localStorage.setItem("bookmarks", JSON.stringify(bookmarkList));
-  if (bookmarkList.length == 0) {
-    localStorage.clear();
-  }
-
   display(bookmarkList);
 }
 
@@ -110,7 +111,6 @@ function validateName() {
 
 //submit button validation
 function submitValidation() {
-  var nameValue = bookmarkNameInput.value;
   if (
     bookmarkNameInput.classList.contains("is-valid") &&
     bookmarkUrlInput.classList.contains("is-valid")
