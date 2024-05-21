@@ -132,6 +132,7 @@ function disableSubmit() {
   addBookmarkBtn.classList.add("disabled");
 }
 
+// Event Listeners
 bookmarkUrlInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     addBookmark();
