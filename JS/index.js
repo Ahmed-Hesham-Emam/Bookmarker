@@ -36,6 +36,9 @@ function addBookmark() {
   } else if (bookmarkExistsURL) {
     alert("(╯°□°）╯︵ ┻━┻ THIS BOOKMARK URL ALREADY EXISTS!");
     // console.log("URL already exists!");
+  } else if (bookmarkNameInput.value === "" || bookmarkUrlInput.value === "") {
+    alert("(╯°□°）╯︵ ┻━┻ PLEASE FILL OUT THE FORM!");
+    // console.log("Please fill out the form!");
   } else {
     bookmarkList.push(bookmarks);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarkList));
