@@ -4,7 +4,7 @@ var addBookmarkBtn = document.getElementById("Submit");
 var bookmarkView = document.getElementById("my-table");
 var regexName = /^[a-z]{2,}/gi;
 var regexURL =
-  /^(http:\/\/|https:\/\/)?(w{3}\.)?[a-zA-Z0-9_]{1,}\.(com|co|net|edu|gov|me|tech|site|mil|eg|bg|tr|ru|uk|ca)/g;
+  /^(http:\/\/|https:\/\/)?(w{3}\.)?[a-zA-Z0-9_]{1,}\.(com|co|net|edu|gov|me|tech|site|mil|eg|bg|tr|ru|uk|ca)/gi;
 var bookmarkList = [];
 
 // createing an array to store the bookmarks
@@ -128,3 +128,15 @@ function submitValidation() {
 function disableSubmit() {
   addBookmarkBtn.classList.add("disabled");
 }
+
+bookmarkUrlInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    addBookmark();
+  }
+});
+
+bookmarkNameInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    addBookmark();
+  }
+});
