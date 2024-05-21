@@ -136,11 +136,13 @@ function disableSubmit() {
 bookmarkUrlInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     addBookmark();
+    addBookmarkBtn.classList.add("disabled");
   }
 });
 
 bookmarkNameInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     addBookmark();
+    addBookmarkBtn.classList.add("disabled");
   }
 });
