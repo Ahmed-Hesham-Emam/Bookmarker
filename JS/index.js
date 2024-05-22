@@ -165,5 +165,5 @@ bookmarkUrlInput.addEventListener("input", submitValidation);
 addBookmarkBtn.addEventListener("click", addBookmark);
 
 //keypress event listener
-bookmarkUrlInput.addEventListener("keypress", handleKeyPress);
 bookmarkNameInput.addEventListener("keypress", handleKeyPress);
+bookmarkUrlInput.addEventListener("keypress", handleKeyPress);
