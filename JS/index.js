@@ -119,18 +119,6 @@ function validateURL() {
   }
 }
 
-//validate Name
-function validateName() {
-  var nameValue = bookmarkNameInput.value;
-  if (regexName.test(nameValue) == true) {
-    bookmarkNameInput.classList.add("is-valid");
-    bookmarkNameInput.classList.remove("is-invalid");
-  } else if (regexName.test(nameValue) == false) {
-    bookmarkNameInput.classList.add("is-invalid");
-    bookmarkNameInput.classList.remove("is-valid");
-  }
-}
-
 //submit button validation
 function submitValidation() {
   if (
