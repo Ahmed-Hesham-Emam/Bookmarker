@@ -79,7 +79,7 @@ function display(View) {
         </tr>`;
   }
   bookmarkView.innerHTML = bookMarks;
-  disableSubmit();
+  addBookmarkBtn.classList.add("disabled");
 }
 
 // clear form
@@ -95,7 +95,7 @@ function deleteBookmark(index) {
   display(bookmarkList);
 }
 
-// view bookmarks
+// visit bookmarks
 function viewBookmark(index) {
   if (
     bookmarkList[index].URL.includes("http://") ||
@@ -146,11 +146,6 @@ function submitValidation() {
   }
 }
 
-//disable submit button
-function disableSubmit() {
-  addBookmarkBtn.classList.add("disabled");
-}
-
 //handle keypress
 function handleKeyPress(e) {
   if (e.key === "Enter") {
@@ -159,10 +154,16 @@ function handleKeyPress(e) {
 }
 
 //event listeners
+
+//input event listener
 bookmarkNameInput.addEventListener("input", validateName);
+bookmarkNameInput.addEventListener("input", submitValidation);
 bookmarkUrlInput.addEventListener("input", validateURL);
 bookmarkUrlInput.addEventListener("input", submitValidation);
-bookmarkNameInput.addEventListener("input", submitValidation);
+
+//click event listener
 addBookmarkBtn.addEventListener("click", addBookmark);
+
+//keypress event listener
 bookmarkUrlInput.addEventListener("keypress", handleKeyPress);
 bookmarkNameInput.addEventListener("keypress", handleKeyPress);
