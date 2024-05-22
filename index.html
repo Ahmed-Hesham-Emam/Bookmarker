@@ -23,10 +23,7 @@
       <div class="container">
         <h1 class="py-1 d-inline-block z-1 position-relative">Bookmarker</h1>
 
-        <div
-          oninput="submitValidation()"
-          class="box-1 position-relative mt-5 py-3"
-        >
+        <div class="box-1 position-relative mt-5 py-3">
           <div class="row">
             <div class="col-12">
               <h2 class="pt-4">
@@ -41,7 +38,6 @@
             <div class="col-12">
               <div class="form-floating mt-5 mb-4">
                 <input
-                  oninput="validateName()"
                   type="text"
                   class="form-control"
                   id="bookmarkName"
@@ -60,7 +56,6 @@
             <div class="col-12">
               <div class="form-floating mt-2 mb-4">
                 <input
-                  oninput="validateURL()"
                   type="text"
                   class="form-control"
                   id="bookmarkURL"
@@ -77,7 +72,6 @@
 
           <button
             id="Submit"
-            onclick="addBookmark()"
             class="btn btn-submit disabled px-5 text-white align-self-center mb-4"
           >
             Submit

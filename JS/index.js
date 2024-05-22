@@ -32,13 +32,31 @@ function addBookmark() {
     // console.log("the bookmark name and url already exists!");
   } else if (bookmarkExistsName) {
     alert("(╯°□°）╯︵ ┻━┻ THIS BOOKMARK NAME ALREADY EXISTS!");
+    bookmarkNameInput.focus();
     // console.log("Name already exists!");
   } else if (bookmarkExistsURL) {
     alert("(╯°□°）╯︵ ┻━┻ THIS BOOKMARK URL ALREADY EXISTS!");
+    bookmarkUrlInput.focus();
     // console.log("URL already exists!");
-  } else if (bookmarkNameInput.value === "" || bookmarkUrlInput.value === "") {
+  } else if (bookmarkNameInput.value === "" && bookmarkUrlInput.value === "") {
     alert("(╯°□°）╯︵ ┻━┻ PLEASE FILL OUT THE FORM!");
     // console.log("Please fill out the form!");
+  } else if (bookmarkNameInput.value === "") {
+    alert("(╯°□°）╯︵ ┻━┻ PLEASE ENTER A NAME!");
+    bookmarkNameInput.focus();
+    // console.log("Please enter a name!");
+  } else if (bookmarkUrlInput.value === "") {
+    alert("(╯°□°）╯︵ ┻━┻ PLEASE ENTER A URL!");
+    bookmarkUrlInput.focus();
+    // console.log("Please enter a URL!");
+  } else if (bookmarkNameInput.classList.contains("is-invalid")) {
+    alert("(╯°□°）╯︵ ┻━┻ PLEASE ENTER A VALID NAME!");
+    bookmarkNameInput.focus();
+    // console.log("Please enter a valid name!");
+  } else if (bookmarkUrlInput.classList.contains("is-invalid")) {
+    alert("(╯°□°）╯︵ ┻━┻ PLEASE ENTER A VALID URL!");
+    bookmarkUrlInput.focus();
+    // console.log("Please enter a valid URL!");
   } else {
     bookmarkList.push(bookmarks);
     localStorage.setItem("bookmarks", JSON.stringify(bookmarkList));
@@ -133,15 +151,18 @@ function disableSubmit() {
   addBookmarkBtn.classList.add("disabled");
 }
 
-// Event Listeners
-bookmarkUrlInput.addEventListener("keypress", function (e) {
+//handle keypress
+function handleKeyPress(e) {
   if (e.key === "Enter") {
     addBookmark();
   }
-});
+}
 
-bookmarkNameInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    addBookmark();
-  }
-});
+//event listeners
+bookmarkNameInput.addEventListener("input", validateName);
+bookmarkUrlInput.addEventListener("input", validateURL);
+bookmarkUrlInput.addEventListener("input", submitValidation);
+bookmarkNameInput.addEventListener("input", submitValidation);
+addBookmarkBtn.addEventListener("click", addBookmark);
+bookmarkUrlInput.addEventListener("keypress", handleKeyPress);
+bookmarkNameInput.addEventListener("keypress", handleKeyPress);
